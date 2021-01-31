@@ -1,8 +1,17 @@
 <template>
-  <main>
-    <h1>{{ msg }}</h1>
+  <section>
     <ImageBox />
-  </main>
+    <ImageBox />
+    <ImageBox />
+    <ImageBox />
+    <ImageBox />
+    <ImageBox />
+    <ImageBox />
+    <ImageBox />
+    <ImageBox />
+    <ImageBox />
+    <ImageBox />
+  </section>
 </template>
 
 <script lang="ts">
@@ -13,11 +22,6 @@ export default defineComponent({
   name: 'Images',
   components: {
     ImageBox
-  },
-  data() {
-    return {
-      msg: 'Hello world, this is Vue.js v3 TypeScript images search application.' as string
-    };
   }
 });
 </script>

@@ -1,17 +1,19 @@
 <template>
-  <Header />
-  <Images />
+  <main>
+    <Search />
+    <Images />
+  </main>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Header from './components/layout/Header.vue';
+import Search from './components/Search.vue';
 import Images from './components/Images.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
-    Header,
+    Search,
     Images
   }
 });
