@@ -2,7 +2,7 @@
   <section class="search">
     <form class="search__form">
       <input type="text" class="search__input" placeholder="Search" />
-      <button class="search__btn">Find it!</button>
+      <button type="submit" class="search__btn"><fa icon="search"></fa></button>
     </form>
   </section>
 </template>
@@ -37,16 +37,22 @@ export default defineComponent({
   }
 
   &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 1rem 1.5rem;
     border: none;
+    outline: none;
     border-bottom: 0.2rem solid var(--blue);
     background-color: white;
+    font-size: 1.8rem;
+    color: var(--blue);
     cursor: pointer;
-    transition: all 250ms ease-in-out;
+    transition: all 150ms ease-in-out;
 
     &:hover {
-      border-bottom: 0.2rem solid var(--yellow);
-      transition: all 250ms ease-in-out;
+      color: var(--yellow);
+      transition: all 150ms ease-in-out;
     }
   }
 }
