@@ -34,10 +34,6 @@ export default defineComponent({
     font-size: 1.8rem;
     color: var(--blue);
 
-    &:focus {
-      border-bottom: 0.2rem solid var(--yellow);
-    }
-
     &::placeholder {
       font-size: 1.8rem;
       color: var(--blue);
@@ -56,18 +52,30 @@ export default defineComponent({
     font-size: 1.8rem;
     color: var(--blue);
     cursor: pointer;
-    transition: all 150ms ease-in-out;
+    transition: color 150ms ease-in-out;
 
     &:hover {
       color: var(--yellow);
-      transition: all 150ms ease-in-out;
+      transition: color 150ms ease-in-out;
     }
   }
 }
 
-// @media screen and (min-width: 868px) {
-//   .search {
+@media screen and (min-width: 868px) {
+  .search {
+    &__input {
+      font-size: 2.2rem;
+      border-bottom: 0.3rem solid var(--blue);
 
-//   }
-// }
+      &::placeholder {
+        font-size: 2.2rem;
+      }
+    }
+
+    &__btn {
+      border-bottom: 0.3rem solid var(--blue);
+      font-size: 2.2rem;
+    }
+  }
+}
 </style>

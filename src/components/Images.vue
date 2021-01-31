@@ -1,27 +1,25 @@
 <template>
   <section class="photos">
-    <ImageBox />
-    <ImageBox />
-    <ImageBox />
-    <ImageBox />
-    <ImageBox />
-    <ImageBox />
-    <ImageBox />
-    <ImageBox />
-    <ImageBox />
-    <ImageBox />
-    <ImageBox />
+    <ImageBox :key="image.id" v-for="image in allImages" />
   </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { mapGetters, mapActions } from 'vuex';
 import ImageBox from './common/ImageBox.vue';
 
 export default defineComponent({
   name: 'Images',
   components: {
     ImageBox
+  },
+  methods: {
+    ...mapActions(['getImages'])
+  },
+  computed: mapGetters(['allImages']),
+  created() {
+    this.getImages('https://api.unsplash.com/photos/random?count=30');
   }
 });
 </script>

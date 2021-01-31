@@ -1,8 +1,9 @@
 import { createStore } from 'vuex';
-import { error } from './modules';
+import { error, images } from './modules';
 
 export default createStore({
   modules: {
-    error
+    error,
+    images
   }
 });
