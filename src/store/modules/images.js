@@ -10,8 +10,8 @@ const getters = {
 };
 
 const actions = {
-  toggleLoading({ commit }) {
-    commit('toggleLoading');
+  setIsLoading({ commit }, isLoading) {
+    commit('setIsLoading', isLoading);
   },
   async getImages({ commit }, url) {
     const response = await fetch(url, {
@@ -21,19 +21,19 @@ const actions = {
         authorization: `Client-ID ${state.authKey}`
       }
     });
-    console.log(response);
 
     if (response.ok) {
       const data = await response.json();
 
+      commit('setIsLoading', false);
       commit('setImages', data);
     }
   }
 };
 
 const mutations = {
-  toggleLoading: (state) => {
-    state.isLoading = !state.isLoading;
+  setIsLoading: (state, isLoading) => {
+    state.isLoading = isLoading;
   },
   setImages: (state, data) => {
     if (data.results) {

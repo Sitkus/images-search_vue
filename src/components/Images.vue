@@ -2,7 +2,7 @@
   <section v-if="isLoading" class="photos">
     <BlankImageBox v-for="blankImage in 30" :key="blankImage" />
   </section>
-  <section v-else-if="allImages" class="photos">
+  <section v-else class="photos">
     <ImageBox
       v-for="image in allImages"
       :likes="image.likes"
@@ -28,15 +28,10 @@ export default defineComponent({
   },
   computed: mapGetters(['isLoading', 'allImages']),
   methods: {
-    ...mapActions(['toggleLoading', 'getImages'])
+    ...mapActions(['getImages'])
   },
   created() {
     this.getImages('https://api.unsplash.com/photos/random?count=30');
-  },
-  mounted() {
-    if (this.allImages.length > 0) {
-      this.toggleLoading();
-    }
   }
 });
 </script>

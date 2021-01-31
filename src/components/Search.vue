@@ -1,14 +1,16 @@
 <template>
   <section class="search">
-    <form @submit.prevent="checkIfInputIsNotEmpty" class="search__form">
+    <form method="GET" @submit.prevent="checkIfInputIsNotEmpty" class="search__form">
       <input
-        v-model="searchInput"
+        v-model.trim="searchInput"
         type="text"
         class="search__input"
         :class="{ 'search__input--error': errorMessage }"
         placeholder="Search"
       />
-      <button type="submit" class="search__btn"><fa icon="search"></fa></button>
+      <button type="submit" class="search__btn" :class="{ 'search__btn--error': errorMessage }">
+        <fa icon="search"></fa>
+      </button>
     </form>
   </section>
 </template>
@@ -26,9 +28,13 @@ export default defineComponent({
   },
   computed: mapGetters(['errorMessage']),
   methods: {
-    ...mapActions(['getImages', 'showError', 'removeError']),
+    ...mapActions(['setIsLoading', 'getImages', 'showError', 'removeError']),
     checkIfInputIsNotEmpty() {
+      this.removeError();
+
       if (this.searchInput) {
+        this.setIsLoading(true);
+
         this.getImages(`https://api.unsplash.com/search/photos?query=${this.searchInput}&per_page=30`);
       } else {
         this.showError('Please insert something to search for');
@@ -85,6 +91,10 @@ export default defineComponent({
       color: $yellow;
       transition: color 150ms ease-in-out;
     }
+
+    &--error {
+      border-dottom: 0.2rem solid $red;
+    }
   }
 }
 
@@ -106,6 +116,10 @@ export default defineComponent({
     &__btn {
       border-bottom: 0.3rem solid $blue;
       font-size: 2.2rem;
+
+      &--error {
+        border-bottom: 0.3rem solid $red;
+      }
     }
   }
 }
