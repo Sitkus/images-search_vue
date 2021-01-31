@@ -1,13 +1,17 @@
 <template>
   <article class="photo">
-    <img class="photo__img" src="@/assets/images/hero.jpg" alt="Text" />
+    <img class="photo__img" :src="pictureUrl" :alt="pictureAlt ? pictureAlt : 'Photography'" />
     <div class="photo__info">
       <div>
-        <h2 class="photo__author">Lukas Sitkus</h2>
-        <p class="photo__likes">103 likes</p>
+        <h2 class="photo__author">{{ user.first_name }} {{ user.last_name }}</h2>
+        <p class="photo__likes">{{ likes }} likes</p>
       </div>
-      <a class="photo__portrait-link" href="/">
-        <img class="photo__portrait" src="@/assets/images/hero.jpg" alt="/" />
+      <a class="photo__portrait-link" :href="user.links.html" target="_blank">
+        <img
+          class="photo__portrait"
+          :src="user.profile_image.large"
+          :alt="`Picture of ${user.first_name} ${user.last_name}`"
+        />
       </a>
     </div>
   </article>
@@ -17,17 +21,36 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'Header'
+  name: 'ImageBox',
+  props: {
+    pictureUrl: {
+      type: String,
+      required: true
+    },
+    pictureAlt: {
+      type: String,
+      required: false
+    },
+    user: {
+      type: Object,
+      required: true
+    },
+    likes: {
+      type: Number,
+      required: true
+    }
+  }
 });
 </script>
 
 <style scoped lang="scss">
 .photo {
   position: relative;
-  height: 28rem;
+  height: 30rem;
   width: 100%;
   margin-bottom: 3rem;
   overflow: hidden;
+  background-color: $blue;
 
   &:hover .photo__info {
     bottom: 0;
@@ -43,7 +66,7 @@ export default defineComponent({
 
   &__info {
     position: absolute;
-    bottom: -90px;
+    bottom: -95px;
     left: 0;
     display: flex;
     justify-content: space-between;
@@ -51,7 +74,7 @@ export default defineComponent({
     width: 100%;
     background-color: rgba(0, 0, 0, 0.4);
     color: white;
-    padding: 1.5rem;
+    padding: 2rem;
     transition: 500ms all ease-in-out;
   }
 
@@ -90,10 +113,6 @@ export default defineComponent({
 
     &:nth-child(2n) {
       margin-right: 0;
-    }
-
-    &__info {
-      padding: 2rem;
     }
   }
 }

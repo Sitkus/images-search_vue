@@ -20,51 +20,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-:root {
-  --black: #161616;
-  --blue: #324d67;
-  --gray: #cccccc;
-  --light-gray: #f1f1f1;
-  --light-white: #f9f9f9;
-  --yellow: #eda31d;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  background-color: white;
-  -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -ms-overflow-style: scrollbar;
-  overflow-y: scroll;
-}
-
-body {
-  color: var(--black);
-  font-size: 1.5rem;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-ul {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
 .main {
+  min-height: calc(100vh - 6rem);
   width: 90vw;
   margin: 3rem auto;
 }

@@ -1,6 +1,16 @@
 <template>
-  <section class="photos">
-    <ImageBox :key="image.id" v-for="image in allImages" />
+  <section v-if="isLoading" class="photos">
+    <BlankImageBox v-for="blankImage in 30" :key="blankImage" />
+  </section>
+  <section v-else-if="allImages" class="photos">
+    <ImageBox
+      v-for="image in allImages"
+      :likes="image.likes"
+      :user="image.user"
+      :pictureUrl="image.urls.regular"
+      :pictureAlt="image.alt_description"
+      :key="image.id"
+    />
   </section>
 </template>
 
@@ -8,18 +18,25 @@
 import { defineComponent } from 'vue';
 import { mapGetters, mapActions } from 'vuex';
 import ImageBox from './common/ImageBox.vue';
+import BlankImageBox from './common/BlankImageBox.vue';
 
 export default defineComponent({
   name: 'Images',
   components: {
-    ImageBox
+    ImageBox,
+    BlankImageBox
   },
+  computed: mapGetters(['isLoading', 'allImages']),
   methods: {
-    ...mapActions(['getImages'])
+    ...mapActions(['toggleLoading', 'getImages'])
   },
-  computed: mapGetters(['allImages']),
   created() {
     this.getImages('https://api.unsplash.com/photos/random?count=30');
+  },
+  mounted() {
+    if (this.allImages.length > 0) {
+      this.toggleLoading();
+    }
   }
 });
 </script>

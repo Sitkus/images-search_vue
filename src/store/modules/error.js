@@ -1,10 +1,28 @@
-const state = {};
+const state = {
+  errorMessage: ''
+};
 
-const getters = {};
+const getters = {
+  errorMessage: (state) => state.errorMessage
+};
 
-const actions = {};
+const actions = {
+  showError({ commit }, msg) {
+    commit('showErrorMessage', msg);
+  },
+  removeError({ commit }) {
+    commit('removeErrorMessage');
+  }
+};
 
-const mutations = {};
+const mutations = {
+  showErrorMessage: (state, msg) => {
+    state.errorMessage = msg;
+  },
+  removeErrorMessage: (state) => {
+    state.errorMessage = '';
+  }
+};
 
 export default {
   state,
