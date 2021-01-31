@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="photos">
     <ImageBox />
     <ImageBox />
     <ImageBox />
@@ -27,5 +27,9 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-// Style
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 </style>
