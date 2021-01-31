@@ -29,6 +29,11 @@ export default defineComponent({
   margin-bottom: 3rem;
   overflow: hidden;
 
+  &:hover .photo__info {
+    bottom: 0;
+    transition: 500ms all ease-in-out;
+  }
+
   &__img {
     display: block;
     width: 100%;
@@ -38,7 +43,7 @@ export default defineComponent({
 
   &__info {
     position: absolute;
-    bottom: 0;
+    bottom: -90px;
     left: 0;
     display: flex;
     justify-content: space-between;
@@ -46,11 +51,13 @@ export default defineComponent({
     width: 100%;
     background-color: rgba(0, 0, 0, 0.4);
     color: white;
-    padding: 2rem;
+    padding: 1.5rem;
+    transition: 500ms all ease-in-out;
   }
 
   &__author {
-    //
+    font-size: 1.7rem;
+    margin-bottom: 0.2rem;
   }
 
   &__likes {
@@ -66,6 +73,13 @@ export default defineComponent({
     height: 5rem;
     object-fit: cover;
     border-radius: 50%;
+    transform: scale(1);
+    transition: 200ms all ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+      transition: 200ms all ease-in-out;
+    }
   }
 }
 </style>
