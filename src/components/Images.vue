@@ -32,4 +32,10 @@ export default defineComponent({
   flex-wrap: wrap;
   justify-content: center;
 }
+
+@media screen and (min-width: 876px) {
+  .photos {
+    justify-content: flex-start;
+  }
+}
 </style>

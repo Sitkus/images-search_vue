@@ -63,8 +63,15 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
 .main {
   width: 90vw;
-  margin: 0 auto;
+  margin: 3rem auto;
+}
+
+@media screen and (min-width: 1100px) {
+  .main {
+    width: 85vw;
+  }
 }
 </style>

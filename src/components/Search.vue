@@ -18,6 +18,7 @@ export default defineComponent({
 <style scoped lang="scss">
 .search {
   padding: 5rem 0;
+  max-width: 60rem;
 
   &__form {
     width: 100%;
@@ -30,9 +31,16 @@ export default defineComponent({
     border: none;
     border-bottom: 0.2rem solid var(--blue);
     outline: none;
+    font-size: 1.8rem;
+    color: var(--blue);
 
     &:focus {
       border-bottom: 0.2rem solid var(--yellow);
+    }
+
+    &::placeholder {
+      font-size: 1.8rem;
+      color: var(--blue);
     }
   }
 
@@ -56,4 +64,10 @@ export default defineComponent({
     }
   }
 }
+
+// @media screen and (min-width: 868px) {
+//   .search {
+
+//   }
+// }
 </style>
