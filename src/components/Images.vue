@@ -4,7 +4,7 @@
   </section>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { mapGetters, mapActions } from 'vuex';
 import ImageBox from './common/ImageBox.vue';

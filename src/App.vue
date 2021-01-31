@@ -5,7 +5,7 @@
   </main>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import Search from './components/Search.vue';
 import Images from './components/Images.vue';
