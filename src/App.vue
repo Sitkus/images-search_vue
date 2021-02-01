@@ -1,5 +1,6 @@
 <template>
   <main class="main">
+    <ErrorMessage v-if="errorMessage" />
     <Search />
     <Images />
   </main>
@@ -7,15 +8,20 @@
 
 <script>
 import { defineComponent } from 'vue';
+import { mapActions, mapGetters } from 'vuex';
+import ErrorMessage from './components/common/ErrorMessage.vue';
 import Search from './components/Search.vue';
 import Images from './components/Images.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
+    ErrorMessage,
     Search,
     Images
-  }
+  },
+  computed: mapGetters(['errorMessage']),
+  methods: mapActions(['showError', 'removeError'])
 });
 </script>
 
