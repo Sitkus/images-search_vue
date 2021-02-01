@@ -8,7 +8,7 @@ import { mapGetters } from 'vuex';
 
 export default defineComponent({
   name: 'ErrorMessage',
-  computed: mapGetters(['errorMessage'])
+  computed: mapGetters('error', ['errorMessage'])
 });
 </script>
 

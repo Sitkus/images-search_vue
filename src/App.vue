@@ -9,6 +9,7 @@
 <script>
 import { defineComponent } from 'vue';
 import { mapActions, mapGetters } from 'vuex';
+
 import ErrorMessage from './components/common/ErrorMessage.vue';
 import Search from './components/Search.vue';
 import Images from './components/Images.vue';
@@ -20,8 +21,8 @@ export default defineComponent({
     Search,
     Images
   },
-  computed: mapGetters(['errorMessage']),
-  methods: mapActions(['showError', 'removeError'])
+  computed: mapGetters('error', ['errorMessage']),
+  methods: mapActions('error', ['showError', 'removeError'])
 });
 </script>
 

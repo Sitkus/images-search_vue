@@ -1,3 +1,5 @@
+const namespaced = true;
+
 const state = {
   errorMessage: ''
 };
@@ -25,6 +27,7 @@ const mutations = {
 };
 
 export default {
+  namespaced,
   state,
   getters,
   actions,

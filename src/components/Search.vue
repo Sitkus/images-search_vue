@@ -26,9 +26,10 @@ export default defineComponent({
       searchInput: ''
     };
   },
-  computed: mapGetters(['errorMessage']),
+  computed: mapGetters('error', ['errorMessage']),
   methods: {
-    ...mapActions(['setIsLoading', 'getImages', 'showError', 'removeError']),
+    ...mapActions('error', ['showError', 'removeError']),
+    ...mapActions('images', ['setIsLoading', 'getImages']),
     checkIfInputIsNotEmpty() {
       this.removeError();
 

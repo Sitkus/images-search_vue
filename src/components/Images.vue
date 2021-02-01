@@ -1,5 +1,5 @@
 <template>
-  <section v-if="isLoading" class="photos">
+  <section v-if="isLoading || allImages.length === 0" class="photos">
     <BlankImageBox v-for="blankImage in 30" :key="blankImage" />
   </section>
   <section v-else class="photos">
@@ -17,6 +17,7 @@
 <script>
 import { defineComponent } from 'vue';
 import { mapGetters, mapActions } from 'vuex';
+
 import ImageBox from './common/ImageBox.vue';
 import BlankImageBox from './common/BlankImageBox.vue';
 
@@ -26,9 +27,13 @@ export default defineComponent({
     ImageBox,
     BlankImageBox
   },
-  computed: mapGetters(['isLoading', 'allImages']),
+  computed: {
+    ...mapGetters('images', ['isLoading', 'allImages']),
+    ...mapGetters('error', ['errorMessage'])
+  },
   methods: {
-    ...mapActions(['getImages'])
+    ...mapActions('images', ['getImages']),
+    ...mapActions('error', ['showError', 'removeError'])
   },
   created() {
     this.getImages('https://api.unsplash.com/photos/random?count=30');
