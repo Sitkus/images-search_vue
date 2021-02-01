@@ -2,7 +2,7 @@
 
 Building simple images search application with Vue v3 and Vuex to learn and improve.
 
-Netlify link will be available when the project is complete.
+You can check live project on [netlify](https://images-search-vue-app.netlify.app/)
 
 ## Project goals
 
