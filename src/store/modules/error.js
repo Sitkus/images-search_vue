@@ -10,18 +10,18 @@ const getters = {
 
 const actions = {
   showError({ commit }, msg) {
-    commit('showErrorMessage', msg);
+    commit('SHOW_ERROR', msg);
   },
   removeError({ commit }) {
-    commit('removeErrorMessage');
+    commit('REMOVE_ERROR');
   }
 };
 
 const mutations = {
-  showErrorMessage: (state, msg) => {
+  SHOW_ERROR: (state, msg) => {
     state.errorMessage = msg;
   },
-  removeErrorMessage: (state) => {
+  REMOVE_ERROR: (state) => {
     state.errorMessage = '';
   }
 };
