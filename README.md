@@ -12,7 +12,7 @@ Build a simple single page application using [unsplash.com](www.unsplash.com) AP
 
 Use Vue and build search input with which a user could fetch new photos using keywords, minor things like loading and error indicator included.
 
-In addition I'm using Vuex, to learn and improve my skills with it.
+In addition I'm using Vuex and SCSS improve my skills with those technologies.
 
 Test units are made with JEST.
 

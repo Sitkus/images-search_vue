@@ -59,8 +59,10 @@ export default defineComponent({
     flex: 1;
     padding: 1rem 1.5rem;
     border: none;
-    border-bottom: 0.2rem solid $blue;
     outline: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+    border-bottom: 0.2rem solid $blue;
     font-size: 1.8rem;
     color: $blue;
 
@@ -81,6 +83,8 @@ export default defineComponent({
     padding: 1rem 1.5rem;
     border: none;
     outline: none;
+    -webkit-appearance: none;
+    border-radius: 0;
     border-bottom: 0.2rem solid $blue;
     background-color: white;
     font-size: 1.8rem;
