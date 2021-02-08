@@ -15,32 +15,34 @@ const actions = {
   setIsLoading({ commit }, isLoading) {
     commit('SET_IS_LOADING', isLoading);
   },
-  getImages({ commit, dispatch }, url) {
-    fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        authorization: `Client-ID ${state.authKey}`
-      }
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.length > 0 || data.results.length > 0) {
-          commit('SET_IS_LOADING', false);
-          commit('SET_IMAGES', data.results ? data.results : data);
-        } else {
-          dispatch('error/showError', "We couldn't find any images with your search term, try something else", {
-            root: true
-          });
+  async getImages({ commit, dispatch }, url) {
+    try {
+      const fetchConfig = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Client-ID ${state.authKey}`
         }
-      })
-      .catch((err) => {
-        console.log(err);
+      };
 
-        dispatch('error/showError', `Something went wrong with an API server, please check console...`, {
+      const response = await fetch(url, fetchConfig);
+      const data = await response.json();
+
+      if (data.length > 0 || data.results.length > 0) {
+        commit('SET_IS_LOADING', false);
+        commit('SET_IMAGES', data.results ? data.results : data);
+      } else {
+        dispatch('error/showError', "We couldn't find any images with your search term, try something else", {
           root: true
         });
+      }
+    } catch (err) {
+      console.log(err);
+
+      dispatch('error/showError', 'Something went wrong with an API server, please check the console...', {
+        root: true
       });
+    }
   }
 };
 
