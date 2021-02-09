@@ -1,5 +1,5 @@
 <template>
-  <p data-test="error" class="error">{{ errorMessage }}</p>
+  <p data-testid="error" class="error">{{ errorMessage }}</p>
 </template>
 
 <script>

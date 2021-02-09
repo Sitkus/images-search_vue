@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
+    "test": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -31,15 +31,5 @@
     "sass-loader": "^10.1.1",
     "typescript": "~3.9.3",
     "vue-jest": "^5.0.0-alpha.8"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "vue"
-    ],
-    "transform": {
-      "^.+\\.js$": "babel-jest",
-      ".*\\.(vue)$": "vue-jest"
-    }
   }
 }
