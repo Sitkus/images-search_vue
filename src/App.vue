@@ -10,9 +10,8 @@
 import { defineComponent } from 'vue';
 import { mapActions, mapGetters } from 'vuex';
 
-import ErrorMessage from './components/common/ErrorMessage.vue';
-import Search from './components/Search.vue';
-import Images from './components/Images.vue';
+import { ErrorMessage } from './components/common';
+import { Search, Images } from './components';
 
 export default defineComponent({
   name: 'App',

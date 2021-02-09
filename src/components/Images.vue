@@ -17,9 +17,7 @@
 <script>
 import { defineComponent } from 'vue';
 import { mapGetters, mapActions } from 'vuex';
-
-import ImageBox from './common/ImageBox.vue';
-import BlankImageBox from './common/BlankImageBox.vue';
+import { BlankImageBox, ImageBox } from './common';
 
 export default defineComponent({
   name: 'Images',
